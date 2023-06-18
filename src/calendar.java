@@ -1,6 +1,4 @@
 
-import jdk.dynalink.beans.StaticClass;
-
 import java.util.Calendar;
 public class calendar {
         public static String findDay(int month, int day, int year) {
