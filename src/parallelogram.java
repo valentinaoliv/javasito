@@ -6,12 +6,15 @@ public class parallelogram {
         int b = sc.nextInt();
         int h =sc.nextInt();
 
-        if(b <0 || h<0){
+        if(b>0 && h>0){
+            if(b <= 100 && h <= 100){
+                int area=b*h;
+                System.out.println(area);
+            }
+        }else{
             System.out.println("java.lang.Exception: Breadth and height must be positive");
-        }else if(b <= 100 && h <= 100){
-            int area=b*h;
-            System.out.println(area);
         }
         sc.close();
+    }
     }
 }
