@@ -1,4 +1,6 @@
 
+import jdk.dynalink.beans.StaticClass;
+
 import java.util.Calendar;
 public class calendar {
         public static String findDay(int month, int day, int year) {
@@ -13,34 +15,29 @@ public class calendar {
 
                 int diaSemana = calendar.get(Calendar.DAY_OF_WEEK);
 
-                String diaSemanaTexto = "";
-
-                switch (diaSemana) {
-                    case 1:
-                        diaSemanaTexto = "SUNDAY";
-                        break;
-                    case 2:
-                        diaSemanaTexto = "MONDAY";
-                        break;
-                    case 3:
-                        diaSemanaTexto = "TUESDAY";
-                        break;
-                    case 4:
-                        diaSemanaTexto = "WEDNESDAY";
-                        break;
-                    case 5:
-                        diaSemanaTexto = "THURSDAY";
-                        break;
-                    case 6:
-                        diaSemanaTexto = "FRIDAY";
-                        break;
-                    case 7:
-                        diaSemanaTexto = "SATURDAY";
-                        break;
-                }
-                return diaSemanaTexto;
+                return switch (diaSemana) {
+                    case 1 -> "SUNDAY";
+                    case 2 -> "MONDAY";
+                    case 3 -> "TUESDAY";
+                    case 4 -> "WEDNESDAY";
+                    case 5 -> "THURSDAY";
+                    case 6 -> "FRIDAY";
+                    case 7 -> "SATURDAY";
+                    default -> "";
+                };
             }
             return "";
         }
+    public static void main(String[] args) {
+        int month = 8;
+        int day = 5;
+        int year = 2015;
+
+        String res = findDay(month, day, year);
+        System.out.println(res);
+    }
 
 }
+
+
+
